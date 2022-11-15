@@ -1,0 +1,22 @@
+/* .login {
+    margin: auto;
+    width: 60%;
+    border: 5px solid #00ffbf;
+    padding: 10px;
+    } */
+
+    .divider:after,
+.divider:before {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: #eee;
+}
+.h-custom {
+  height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}

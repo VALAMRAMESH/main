@@ -1,0 +1,437 @@
+<!-- <p>employee-login works!</p>
+
+
+<form [formGroup]="updateform" (ngSubmit)="onSubmit()">
+    Email Id: <input type="email" formControlName="email"><br>
+    Username: <input type="text" formControlName="userName"><br>
+    Password: <input type="text" formControlName="password"><br>
+    employee Name: <input type="text" formControlName="employeeName"><br>
+    Project Allocated: <input type="text" formControlName="projectAllocated"><br>
+    project Name: <input type="text" formControlName="projectName"><br>
+    Base Location: <input type="text" formControlName="baseLocation"><br>
+    Upload Resume: <input type="file" formControlName="uploadResume"><br>
+
+   
+    <button type="submit" >OK</button><br>
+    
+</form>
+ -->
+
+
+
+
+        
+        <h1 style="text-align: center; color: indigo;" > Welcome </h1>
+        <mat-card-content style="color: maroon;">
+        <form class="normal-form" [formGroup]="updateform" (ngSubmit)=" onSubmit()">
+            <mat-grid-list cols="2" rowHeight="700px">
+                <mat-grid-tile>
+                    <div class="controls-container">
+        
+                        <mat-form-field appearance="fill">
+                            <!-- <mat-label>Fill form field</mat-label> -->
+                            <input  formControlName="employeeName" matInput placeholder="employeeName" >
+                            
+                            <!-- <mat-hint>Hint</mat-hint> -->
+                          </mat-form-field>
+        
+                          <mat-form-field>
+                            <input formControlName="totalYearOfITExperience" matInput placeholder="totalYearOfITExperience">
+                        </mat-form-field>
+
+
+
+                        <mat-form-field>
+                            <input formControlName="projectAllocated" matInput placeholder="projectAllocated">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input formControlName="projectName" matInput placeholder="projectName">
+                        </mat-form-field>
+                        
+                        <mat-form-field>
+                            <input formControlName="userName" matInput placeholder="userName">
+                        </mat-form-field>
+                        <mat-form-field>
+                            <input formControlName="password" matInput placeholder="password">
+                        </mat-form-field>
+
+                        <!-- <mat-form-field>
+                          <input formControlName="lastWorkingDate" matInput [matDatepicker]="picker" placeholder="lastWorkingDate">
+                              <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                              <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field> -->
+
+
+                      <tr>
+
+                        <td><div class="form-group">
+                          <label>last working date :  </label>
+                            <input   formControlName="lastWorkingDate" type="date" placeholder="lastWorkingDate">
+        
+                        </div> </td>
+    
+                      </tr>
+
+                       <!-- <div>
+                        <input type="file" class="form-control" (change)="onSelect($event)"  style="height:100%">
+                     </div>  -->
+                     
+                     <div>
+                        Upload Resume:  <input type="file" class="form-control" formControlName="uploadResume" style="height:100%">
+                     </div> 
+                     <!-- Upload Resume: <input type="file" formControlName="uploadResume"><br> -->
+                      
+                      
+                    </div>
+            </mat-grid-tile>
+        
+            <mat-grid-tile>
+              <div class="controls-container">
+                <mat-form-field>
+                  <input formControlName="interest" matInput placeholder="interest">
+              </mat-form-field>
+
+              <mat-form-field>
+                <input formControlName="email" matInput placeholder="email">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input formControlName="mobileNo" matInput placeholder="mobileNo">
+          </mat-form-field>
+
+
+          <mat-form-field>
+            <mat-select formControlName="baseLocation" placeholder="baseLocation">
+            <mat-option>None</mat-option>
+            <ng-container *ngFor="let d of baseLocation">
+
+                <mat-option value="{{d.id}}">{{d.value}}</mat-option>
+                
+            </ng-container>
+
+
+        </mat-select>
+        </mat-form-field>
+
+        <mat-form-field>
+          <input formControlName="preferedLocation" matInput placeholder="preferedLocation">
+      </mat-form-field>
+        
+        <mat-form-field>
+          <input formControlName="ctc" matInput placeholder="ctc">
+      </mat-form-field>
+
+
+      <!-- <mat-form-field>
+        <input formControlName="dateOfJoining" matInput [matDatepicker]="picker1" placeholder="dateOfJoining">
+            <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+            <mat-datepicker #picker1></mat-datepicker>
+    </mat-form-field> -->
+
+    <tr>
+
+      <td><div class="form-group">
+        <label>Date Of Joining :  </label>
+          <input   formControlName="dateOfJoining" type="date" placeholder="dateOfJoining">
+      </div> </td>
+
+    </tr>
+
+    <!-- <mat-form-field appearance="fill">
+        <mat-label>primarySkill</mat-label>
+        <mat-select [formControl]="primarySkill" multiple>
+          <mat-select-trigger>
+            {{primarySkill.value ? primarySkill.value[0] : ''}}
+            <span *ngIf="primarySkill.value?.length > 1" class="example-additional-selection">
+              (+{{primarySkill.value.length - 1}} {{primarySkill.value?.length === 2 ? 'other' : 'others'}})
+            </span>
+          </mat-select-trigger>
+          <mat-option *ngFor="let primarySkill of toppingList" [value]="primarySkill">{{primarySkill}}</mat-option>
+        </mat-select>
+      </mat-form-field> -->
+      <mat-form-field>
+        <mat-select formControlName="primarySkill" placeholder="primarySkill" multiple>
+        <mat-option>None</mat-option>
+        <ng-container *ngFor="let d of primarySkill">
+
+            <mat-option value="{{d.id}}">{{d.value}}</mat-option>
+            
+        </ng-container>
+
+
+    </mat-select>
+    </mat-form-field>
+
+              </div>
+            </mat-grid-tile>
+
+            <mat-grid-tile>
+                <div class="controls-container">
+                   <h2>Please Give Rating According to Your Field..</h2>
+                      <mat-accordion class="example-headers-align">
+                      <mat-expansion-panel [expanded]="step === 0" (opened)="setStep(0)" hideToggle>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                          UI Field
+                          </mat-panel-title>
+                          
+                        </mat-expansion-panel-header>
+                    
+                        <mat-form-field appearance="fill">
+                          <mat-label>Angular</mat-label>
+                          <input formControlName="angular" matInput type="number" min="0" max="10">
+                        </mat-form-field>
+
+                        <mat-form-field appearance="fill">
+                            <mat-label>ReactJs</mat-label>
+                            <input  formControlName="reactJS" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+
+                          <mat-form-field appearance="fill">
+                            <mat-label>NodeJs</mat-label>
+                            <input formControlName="nodeJS" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+
+                        <mat-form-field appearance="fill">
+                            <mat-label>HTML/CSS/Javascript
+                            </mat-label>
+                            <input formControlName="html" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+
+                          <mat-form-field appearance="fill">
+                            <mat-label>Jquery</mat-label>
+                            <input formControlName="jQuery" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+                          
+
+                        <mat-action-row>
+                          <button mat-button color="primary" (click)="nextStep()">Save</button>
+                        </mat-action-row>
+                      </mat-expansion-panel>
+
+
+
+                      <mat-expansion-panel [expanded]="step === 1" (opened)="setStep(1)" hideToggle>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            Java
+                          </mat-panel-title>
+            
+                        </mat-expansion-panel-header>
+                    
+                        <mat-form-field appearance="fill">
+                            <mat-label>coreJava</mat-label>
+                            <input formControlName="coreJava" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+                    
+                          <mat-form-field appearance="fill">
+                            <mat-label>java 8</mat-label>
+                            <input formControlName="java8" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+
+                        <mat-action-row>
+                          <!-- <button mat-button color="warn" (click)="prevStep()">Previous</button> -->
+                          <button mat-button color="primary" (click)="nextStep()">Save</button>
+                        </mat-action-row>
+                      </mat-expansion-panel>
+
+                      
+
+
+                      <mat-expansion-panel [expanded]="step === 2" (opened)="setStep(2)" hideToggle>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            Web technologies
+                          </mat-panel-title>
+            
+                        </mat-expansion-panel-header>
+                    
+                        <mat-form-field appearance="fill">
+                            <mat-label>jsp</mat-label>
+                            <input formControlName="jsp" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+                    
+                          <mat-form-field appearance="fill">
+                            <mat-label>springMVC</mat-label>
+                            <input formControlName="springMVC" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+
+                          <mat-form-field appearance="fill">
+                            <mat-label>springJPA</mat-label>
+                            <input formControlName="springJPA" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+
+                          <mat-form-field appearance="fill">
+                            <mat-label>springSecurity</mat-label>
+                            <input formControlName="springSecurity" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+
+                          <mat-form-field appearance="fill">
+                            <mat-label>springBoot</mat-label>
+                            <input formControlName="springBoot" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+
+
+                          <mat-action-row>
+                            <!-- <button mat-button color="warn" (click)="prevStep()">Previous</button> -->
+                            <button mat-button color="primary" (click)="nextStep()">Save</button>
+                          </mat-action-row>
+                        </mat-expansion-panel>
+
+
+                      <mat-expansion-panel [expanded]="step === 3" (opened)="setStep(3)" hideToggle>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            ORM
+                          </mat-panel-title>
+            
+                        </mat-expansion-panel-header>
+                    
+                        <mat-form-field appearance="fill">
+                            <mat-label>Hibernate</mat-label>
+                            <input formControlName="hibernate" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+                    
+                   <mat-action-row>
+                          <!-- <button mat-button color="warn" (click)="prevStep()">Previous</button> -->
+                          <button mat-button color="primary" (click)="nextStep()">Save</button>
+                        </mat-action-row>
+                      </mat-expansion-panel>
+
+
+
+
+
+
+                      <mat-expansion-panel [expanded]="step === 4" (opened)="setStep(4)" hideToggle>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                            Databases
+                          </mat-panel-title>
+            
+                        </mat-expansion-panel-header>
+                    
+                        <mat-form-field appearance="fill">
+                            <mat-label>oracle</mat-label>
+                            <input formControlName="oracle" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+                    
+                          <mat-form-field appearance="fill">
+                            <mat-label>mysql</mat-label>
+                            <input formControlName="mysql" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+
+                          <mat-form-field appearance="fill">
+                            <mat-label>postgress</mat-label>
+                            <input formControlName="postgress" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+
+                          <mat-form-field appearance="fill">
+                            <mat-label>nosql</mat-label>
+                            <input formControlName="nosql" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+
+                          
+                   <mat-action-row>
+                          <!-- <button mat-button color="warn" (click)="prevStep()">Previous</button> -->
+                          <button mat-button color="primary" (click)="nextStep()">Save</button>
+                        </mat-action-row>
+                      </mat-expansion-panel>
+
+
+
+                      <mat-expansion-panel [expanded]="step === 5" (opened)="setStep(5)" hideToggle>
+                        <mat-expansion-panel-header>
+                          <mat-panel-title>
+                           Cloud Computing
+                          </mat-panel-title>
+            
+                        </mat-expansion-panel-header>
+                    
+                        <mat-form-field appearance="fill">
+                            <mat-label>aws</mat-label>
+                            <input formControlName="aws" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+
+                          <mat-form-field appearance="fill">
+                            <mat-label>springCloud</mat-label>
+                            <input formControlName="springCloud" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+
+                          <mat-form-field appearance="fill">
+                            <mat-label>google</mat-label>
+                            <input formControlName="google" matInput type="number" min="0" max="10">
+                          </mat-form-field>
+                          <mat-action-row>
+                            <!-- <button mat-button color="warn" (click)="prevStep()">Previous</button> -->
+                            <button mat-button color="primary" (click)="nextStep()">Save</button>
+                          </mat-action-row>
+                          </mat-expansion-panel>
+
+
+                          <mat-expansion-panel [expanded]="step === 6" (opened)="setStep(6)" hideToggle>
+                            <mat-expansion-panel-header>
+                              <mat-panel-title>
+                                Operating System
+                              </mat-panel-title>
+                
+                            </mat-expansion-panel-header>
+                        
+                            <!-- <mat-form-field appearance="fill">
+                                <mat-label>Linux</mat-label>
+                                <input formControlName="Linux" matInput type="number" min="0" max="10">
+                              </mat-form-field> -->
+                              <mat-form-field appearance="fill">
+                                <mat-label>Linux</mat-label>
+                                <input formControlName="linux" matInput type="number" min="0" max="10">
+                              </mat-form-field>
+                              <mat-action-row>
+                                <!-- <button mat-button color="warn" (click)="prevStep()">Previous</button> -->
+                                <button mat-button color="primary" (click)="nextStep()">Save</button>
+                              </mat-action-row>
+                              </mat-expansion-panel>
+
+
+
+                              <mat-expansion-panel [expanded]="step === 7" (opened)="setStep(7)" hideToggle>
+                                <mat-expansion-panel-header>
+                                  <mat-panel-title>
+                                   Repository
+                                  </mat-panel-title>
+                    
+                                </mat-expansion-panel-header>
+                            
+                                <mat-form-field appearance="fill">
+                                    <mat-label>git</mat-label>
+                                    <input formControlName="git" matInput type="number" min="0" max="10">
+                                  </mat-form-field>
+        
+                                  <mat-form-field appearance="fill">
+                                    <mat-label>docker</mat-label>
+                                    <input formControlName="docker" matInput type="number" min="0" max="10">
+                                  </mat-form-field>
+                                  <mat-action-row>
+                                    <!-- <button mat-button color="warn" (click)="prevStep()">Previous</button> -->
+                                    <button mat-button color="primary" (click)="nextStep()">Save</button>
+                                  </mat-action-row>
+                  </mat-expansion-panel>
+                    </mat-accordion>
+
+
+                    
+                    
+
+
+        </div>
+                        <div class="button-row">
+                                <button mat-raised-button color="primary" type="submit">submit</button>
+                                
+                                <button mat-raised-button  routerLink="/login" color="warn">Log-Out</button>
+                        </div>
+                
+            </mat-grid-tile>
+          </mat-grid-list>
+        </form>
+        </mat-card-content>
+
+        <router-outlet></router-outlet>

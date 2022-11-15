@@ -1,0 +1,115 @@
+<!--<p>admin-control works!</p>
+ <button routerLink="/register">Register</button><br><br> -->
+<button mat-raised-button  routerLink="/register" color="warn">Register</button> <br><br>
+
+<button mat-raised-button  style="cursor: pointer"  (click)="createExcel()" color="Success">Download Data</button><br><br>
+
+
+<style>
+     th, td {
+      border:1px solid black;
+      
+    }
+</style>
+<div style="overflow:scroll"> 
+ <table border="5" id="excel-sheet" >
+    <tbody>
+    <tr>
+        <th>Employee Id</th>
+        <th>Employee Name</th>
+        <th>Employee Email</th>
+        <th>Employee Base Location</th>
+        <th>Employee Username</th>
+        <th>Employee Password</th>
+        <th>Total Year Of IT Experiance</th>
+        <th>Primary Skill</th>
+        <th>Date of joining</th>
+        <th>Mobile no</th>
+        <th>Angular Rating</th>
+        <th>React Rating</th>
+        <th>Node Rating</th>
+        <th>HTML Rating</th>
+        <th>Jquery Rating</th>
+        <th>core Java Rating</th>
+        <th>Jave 8 Rating</th>
+        <th>JSP Rating</th>
+        <th>Servlet Rating</th>
+        <th>spring MVC Rating</th>
+        <th>spring JPA Rating</th>
+        <th>Spring Boot Rating</th>
+        <th>Spring Security Rating</th>
+        <th>Hibernate Rating</th>
+        <th>Oracle Rating</th>
+        <th>Mysql Rating</th>
+        <th>postgress Rating</th>
+        <th>Mssql Rating</th>
+        <th>Nosql Rating</th>
+        <th>Linux Rating</th>
+        <th>GIT Rating</th>
+        <th>Docker Rating</th>
+        <th>CTC </th> 
+        <th>last Working Date </th>
+        <!-- <th>Employee Resume</th> -->
+        <th>DELETE</th>
+
+        <!-- <th>JAVA</th> -->
+    </tr>
+    
+    <tr  *ngFor = "let e of emplist">
+        <td>{{e.uniqueNo}}</td>
+        <td>{{e.employeeName}}</td>
+        <td>{{e.email}}</td>
+        <td>{{e.baseLocation}}</td>
+        <td>{{e.userName}}</td>
+        <td>{{e.password}}</td>
+        <td>{{e.totalYearOfITExperience}}</td>
+        <td>{{e.primarySkill}}</td>
+        <td>{{e.dateOfJoining}}</td>
+        <td>{{e.mobileNo}}</td>
+        <td>{{e.angular}}</td>
+        <td>{{e.reactJS}}</td>
+        <td>{{e.nodeJS}}</td>
+        <td>{{e.html}}</td>
+        <td>{{e.jQuery}}</td>
+        <td>{{e.coreJava}}</td>
+        <td>{{e.java8}}</td>
+        <td>{{e.jsp}}</td>
+        <td>{{e.servlet}}</td>
+        <td>{{e.springMVC}}</td>
+        <td>{{e.springJPA}}</td>
+        <td>{{e.springBoot}}</td>
+        <td>{{e.springSecurity}}</td>
+        <td>{{e.hibernate}}</td>
+        <td>{{e.oracle}}</td>
+        <td>{{e.mysql}}</td>
+        <td>{{e.postgress}}</td>
+        <td>{{e.mssql}}</td>
+        <td>{{e.nosql}}</td>
+        <td>{{e.linux}}</td>
+        <td>{{e.git}}</td>
+        <td>{{e.docker}}</td>
+        <td>{{e.ctc}}</td>
+        <td>{{e.lastWorkingDate}}</td>
+        <!-- <td>{{e.uploadResume}}</td> -->
+
+        <td>
+            <button mat-icon-button (click)="delete(e['uniqueNo'])">
+                <mat-icon mat-icon-button color="warn">delete</mat-icon>
+              </button>
+        </td>
+        <!-- <td>
+                 <a [routerLink]="['java',e.uniqueNo]">java</a>
+        </td> -->
+    </tr>
+</tbody>
+</table>       
+</div>
+ <button mat-raised-button  routerLink="/login" color="primary">LogOut</button><br> 
+<router-outlet></router-outlet>
+
+
+
+
+
+
+
